@@ -1,0 +1,31 @@
+<p>after selection/deselection, afterChange, comments events</p>
+<hot-table 
+[hotId]="instance"
+[settings]="settings"
+[contextMenu]="true"
+[comments]="true"
+[outsideClickDeselects]="true"
+[afterSelection]="onAfterSelection"
+[afterDeselect]="onAfterDeselection"
+[afterSetCellMeta]="onAfterSetCellMeta"
+[afterChange]="onAfterChange"></hot-table>
+
+<div> Last selection: {{ selection }} </div>
+<hr>
+
+<p>Test hot column</p>
+<hot-table [rowHeaders]="true" [colHeaders]="true" [data]="settings.data">
+    <hot-column *ngFor="let column of columns"></hot-column>
+</hot-table> 
+<hr>
+
+<p>retrieve data through service and clear data</p>
+<hot-table
+[hotId]='remoteTableId'
+[data]="remoteData"
+[columns]="remoteColumns"
+[rowHeaders]="true"
+[outsideClickDeselects]="false"
+[colHeaders]="true"></hot-table>
+
+<button class='btn btn-info' (click)="clearCells()"> Clear cells </button>
